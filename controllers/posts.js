@@ -1,9 +1,9 @@
 const model = require('../models/posts')
 
 function createPost(req,res, next){
-    const content = req.body.content
-    if(!content) return next({status:400, error: 'You need to include a body'})
-    const createdPost = model.createPost(content)
+    const {content, title} = req.body.content
+    if(!content || !content) return next({status:400, error: 'You need to include content and a title'})
+    const createdPost = model.createPost(content, title)
     res.status(201).send({data:createdPost})
 }
 
@@ -21,8 +21,9 @@ function getOne(req,res, next){
 
 function editPost(req, res, next){
     const id = req.params.id
-    const edits = req.body.content
-    if (!edits) return next({ status: 400, error: 'You must include content' })
+    const {content, title} = req.body
+    if (!content && !title) return next({ status: 400, error: 'You must include either content or a title' })
+    const edits = {content, title}
     const editedPost = model.editPost(id, edits)
     if (!editedPost) return next({ status: 404, error: `No post found under ID '${id}'` })
     res.status(200).send({data: editedPost})

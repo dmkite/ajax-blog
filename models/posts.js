@@ -2,8 +2,8 @@ const shortId = require('shortid')
 const fs = require('fs')
 
 
-function createPost(content){
-    const newPost = {content, id: shortId()}
+function createPost(content, title){
+    const newPost = {content, id: shortId(), title}
     let data = fs.readFileSync('data/posts.json', 'utf-8')
     data = JSON.parse(data)
     data.push(newPost)
@@ -32,7 +32,13 @@ function editPost(id, edits){
     let data = fs.readFileSync('data/posts.json', 'utf-8')
     data = JSON.parse(data)
 
-    data[post.index].content = edits
+    if(!!edits.content){
+        data[post.index].content = edits.content
+    }
+    if(!!edits.title){
+        data[post.index].title = edits.title
+    }
+    
     editedPost = data[post.index]
 
     data = JSON.stringify(data, null ,4)

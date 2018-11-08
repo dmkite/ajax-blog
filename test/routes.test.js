@@ -6,7 +6,7 @@ chai.use(require('chai-http'))
 
 describe('POST /', function(){
     it('should create a blogpost',function(done){
-        const post = { id: "7oet_d9Z", content: "lorem ipsum dolor sid amet"}
+        const post = { id: "7oet_d9Z", content: "lorem ipsum dolor sid amet", title: "10 Things You Have In Common With Bigfoot"}
         chai.request(app)
             .post('/posts')
             .send(post)
@@ -15,6 +15,7 @@ describe('POST /', function(){
                 expect(res.body.data).to.be.an('object')
                 expect(!!res.body.data.id).to.be.true
                 expect(!!res.body.data.content).to.be.true
+                expect(!!res.body.data.title).to.be.true
                 expect(!!res.body.data.id).to.be.ok
                 expect(typeof(res.body.data.id)).to.be.a('string')
                 expect(res.body.data.content).to.equal(post.content)
