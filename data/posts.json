@@ -1,10 +1,5 @@
 [
     {
-        "content": "Here is a generic post about something.",
-        "id": "C-n4Ed2zh",
-        "title": "CSS Basics - Nameplate"
-    },
-    {
         "content": "Even more example text",
         "id": "PpbajHged",
         "title": "Chaining Timeouts"
@@ -18,5 +13,10 @@
         "content": "test body",
         "id": "KSBJdpHQ7",
         "title": "Test post"
+    },
+    {
+        "content": "lorem ipsum dolor sid amet",
+        "id": "NOzMiXmmD",
+        "title": "10 Things You Have In Common With Bigfoot"
     }
 ]

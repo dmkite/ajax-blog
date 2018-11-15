@@ -9,6 +9,7 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
+// remove unused code. cors ^ does this.
 //may need below later
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");

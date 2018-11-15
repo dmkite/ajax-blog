@@ -2,6 +2,7 @@ const model = require('../models/posts')
 
 function createPost(req,res, next){
     const {content, title} = req.body
+    // make sure that there are no debugging left overs in your code
     console.log(req.body)
     if(!content || !title) return next({status:400, error: 'You need to include content and a title'})
     const createdPost = model.createPost(content, title)
